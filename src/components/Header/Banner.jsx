@@ -38,7 +38,7 @@ const Banner = () => {
             }}
           >
             Books to{" "}
-            <em className="relative not-italic italic font-normal text-cyan-600">
+            <em className="relative not-italic italic font-normal text-cyan-700">
               freshen up
               <span className="absolute left-0 right-0 bottom-0.5 h-0.5 bg-cyan-400 rounded opacity-50" />
             </em>
@@ -70,7 +70,7 @@ const Banner = () => {
             ))}
           </div>
 
-          <button className="inline-flex items-center gap-3 w-fit px-5 py-2.5 rounded-xl bg-cyan-500  text-sm font-medium tracking-wide border-none cursor-pointer transition-all duration-300 hover:bg-cyan-600 hover:-translate-y-0.5">
+          <button className="inline-flex items-center gap-3 w-fit px-5 py-2.5 rounded-xl bg-cyan-600  text-sm font-medium tracking-wide border-none cursor-pointer transition-all duration-300 hover:bg-cyan-600 hover:-translate-y-0.5">
             View the list
             <span className="flex items-center justify-center w-7 h-7 rounded-lg bg-white/10">
               <svg

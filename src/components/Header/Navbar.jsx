@@ -7,10 +7,10 @@ const Navbar = () => {
     return (
         <header className="w-full bg-white/90 backdrop-blur-md border-b border-gray-100 sticky top-0 z-50">
             <nav className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-                
+
                 <div className="cursor-pointer">
                     <h1 className="text-2xl font-bold text-gray-800 tracking-tight">
-                        Book <span className="text-green-500">Vibe</span>
+                        Book <span className="text-green-600">Vibe</span>
                     </h1>
                 </div>
 
@@ -40,11 +40,11 @@ const Navbar = () => {
 
                 {/* Desktop Buttons */}
                 <div className="hidden md:flex items-center gap-4">
-                    <button className="px-5 py-2 rounded-xl bg-green-500 text-white font-semibold shadow-md hover:scale-105 hover:bg-green-600 transition-all duration-300">
+                    <button className="px-5 py-2 rounded-xl bg-green-600 text-white font-semibold shadow-md hover:scale-105 hover:bg-green-600 transition-all duration-300">
                         Sign In
                     </button>
 
-                    <button className="px-5 py-2 rounded-xl bg-cyan-400 text-white font-semibold shadow-md hover:scale-105 hover:bg-cyan-500 transition-all duration-300">
+                    <button className="px-5 py-2 rounded-xl bg-cyan-600 text-white font-semibold shadow-md hover:scale-105 hover:bg-cyan-500 transition-all duration-300">
                         Sign Up
                     </button>
                 </div>
