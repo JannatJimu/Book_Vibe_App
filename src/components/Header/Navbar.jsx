@@ -1,105 +1,135 @@
 import React, { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, BookOpen } from "lucide-react";
 
 const Navbar = () => {
-    const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false);
 
-    return (
-        <header className="w-full bg-white/90 backdrop-blur-md border-b border-gray-100 sticky top-0 z-50">
-            <nav className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+  return (
+    <header className="sticky top-0 z-50 w-full border-b border-cyan-100 bg-white/80 backdrop-blur-xl shadow-sm">
 
-                <div className="cursor-pointer">
-                    <h1 className="text-2xl font-bold text-gray-800 tracking-tight">
-                        Book <span className="text-green-600">Vibe</span>
-                    </h1>
-                </div>
+      <nav className="max-w-7xl mx-auto px-8 py-4 flex items-center justify-between">
 
-                {/* Desktop Nav Links */}
-                <div className="hidden md:flex items-center gap-8 font-medium">
-                    <a
-                        href=""
-                        className="text-black hover:text-green-500 transition-all duration-300"
-                    >
-                        Home
-                    </a>
+        <div className="flex items-center gap-2 cursor-pointer group">
 
-                    <a
-                        href=""
-                        className="text-gray-600 hover:text-green-500 transition duration-300"
-                    >
-                        Listed Books
-                    </a>
+          <div className="p-2 rounded-xl bg-gradient-to-r from-cyan-500 to-emerald-500 text-white shadow-md group-hover:scale-105 transition duration-300">
+            <BookOpen size={20} />
+          </div>
 
-                    <a
-                        href=""
-                        className="text-gray-600 hover:text-green-500 transition duration-300"
-                    >
-                        Pages to Read
-                    </a>
-                </div>
+          <h1 className="text-2xl font-black tracking-tight text-gray-800">
+            Book
+            <span className="bg-gradient-to-r from-cyan-500 to-emerald-500 bg-clip-text text-transparent ml-1">
+              Vibe
+            </span>
+          </h1>
+        </div>
 
-                {/* Desktop Buttons */}
-                <div className="hidden md:flex items-center gap-4">
-                    <button className="px-5 py-2 rounded-xl bg-green-600 text-white font-semibold shadow-md hover:scale-105 hover:bg-green-600 transition-all duration-300">
-                        Sign In
-                    </button>
 
-                    <button className="px-5 py-2 rounded-xl bg-cyan-600 text-white font-semibold shadow-md hover:scale-105 hover:bg-cyan-500 transition-all duration-300">
-                        Sign Up
-                    </button>
-                </div>
 
-                {/* Mobile Menu Button */}
-                <button
-                    onClick={() => setOpen(!open)}
-                    className="md:hidden p-2 rounded-lg border border-gray-200 hover:bg-gray-100 transition"
-                >
-                    {open ? <X size={24} /> : <Menu size={24} />}
-                </button>
-            </nav>
+        {/* Desktop Menu */}
+        <div className="hidden md:flex items-center gap-8 font-medium">
 
-            {/* Mobile Menu */}
-            <div
-                className={`md:hidden overflow-hidden transition-all duration-300 ${open ? "max-h-96 py-4" : "max-h-0"
-                    }`}
-            >
-                <div className="px-6 flex flex-col gap-4 font-medium bg-white border-t border-gray-100">
+          <a
+            href=""
+            className="relative text-gray-700 hover:text-cyan-600 transition duration-300 after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[2px] after:bg-cyan-500 hover:after:w-full after:transition-all after:duration-300"
+          >
+            Home
+          </a>
 
-                    <a
-                        href=""
-                        className="hover:text-green-500 transition duration-300"
-                    >
-                        Home
-                    </a>
+          <a
+            href=""
+            className="relative text-gray-700 hover:text-cyan-600 transition duration-300 after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[2px] after:bg-cyan-500 hover:after:w-full after:transition-all after:duration-300"
+          >
+            Listed Books
+          </a>
 
-                    <a
-                        href=""
-                        className="text-gray-600 hover:text-green-500 transition duration-300"
-                    >
-                        Listed Books
-                    </a>
+          <a
+            href=""
+            className="relative text-gray-700 hover:text-cyan-600 transition duration-300 after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[2px] after:bg-cyan-500 hover:after:w-full after:transition-all after:duration-300"
+          >
+            Pages to Read
+          </a>
+        </div>
 
-                    <a
-                        href=""
-                        className="text-gray-600 hover:text-green-500 transition duration-300"
-                    >
-                        Pages to Read
-                    </a>
 
-                    {/* Mobile Buttons */}
-                    <div className="flex flex-col gap-3 pt-3">
-                        <button className="w-full px-5 py-2 rounded-xl bg-green-500 text-white font-semibold shadow-md hover:bg-green-600 transition-all duration-300">
-                            Sign In
-                        </button>
 
-                        <button className="w-full px-5 py-2 rounded-xl bg-blue-800 text-white font-semibold shadow-md hover:bg-blue-900 transition-all duration-300">
-                            Sign Up
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </header>
-    );
+        {/* Desktop Buttons */}
+        <div className="hidden md:flex items-center gap-4">
+
+          <button className="px-5 py-2 rounded-xl border border-cyan-200 text-cyan-700 font-semibold hover:bg-cyan-50 transition-all duration-300">
+            Sign In
+          </button>
+
+          <button className="px-5 py-2 rounded-xl bg-gradient-to-r from-cyan-500 to-emerald-500 text-white font-semibold shadow-lg hover:scale-105 hover:shadow-cyan-200 transition-all duration-300">
+            Sign Up
+          </button>
+
+        </div>
+
+
+
+        {/* Mobile Menu Button */}
+        <button
+          onClick={() => setOpen(!open)}
+          className="md:hidden p-2 rounded-xl border border-cyan-100 hover:bg-cyan-50 transition duration-300"
+        >
+          {open ? (
+            <X size={24} className="text-cyan-700" />
+          ) : (
+            <Menu size={24} className="text-cyan-700" />
+          )}
+        </button>
+      </nav>
+
+
+
+      {/* Mobile Menu */}
+      <div
+        className={`md:hidden overflow-hidden transition-all duration-300 ${
+          open ? "max-h-96 py-4" : "max-h-0"
+        }`}
+      >
+
+        <div className="mx-4 rounded-2xl border border-cyan-100 bg-white shadow-lg p-5 flex flex-col gap-5">
+
+          <a
+            href=""
+            className="text-gray-700 hover:text-cyan-600 font-medium transition duration-300"
+          >
+            Home
+          </a>
+
+          <a
+            href=""
+            className="text-gray-700 hover:text-cyan-600 font-medium transition duration-300"
+          >
+            Listed Books
+          </a>
+
+          <a
+            href=""
+            className="text-gray-700 hover:text-cyan-600 font-medium transition duration-300"
+          >
+            Pages to Read
+          </a>
+
+
+
+          {/* Mobile Buttons */}
+          <div className="flex flex-col gap-3 pt-2">
+
+            <button className="w-full px-5 py-2.5 rounded-xl border border-cyan-200 text-cyan-700 font-semibold hover:bg-cyan-50 transition duration-300">
+              Sign In
+            </button>
+
+            <button className="w-full px-5 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-emerald-500 text-white font-semibold shadow-md hover:scale-[1.02] transition duration-300">
+              Sign Up
+            </button>
+
+          </div>
+        </div>
+      </div>
+    </header>
+  );
 };
 
 export default Navbar;
