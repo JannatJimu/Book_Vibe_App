@@ -17,7 +17,7 @@ const miniBooks = [
 
 const Banner = () => {
   return (
-    <section className="max-w-7xl mx-auto px-8  mt-8">
+    <section className="max-w-7xl mx-auto px-8 pt-10">
       <div className="relative overflow-hidden rounded-2xl flex flex-col md:flex-row items-stretch min-h-[380px] bg-cyan-100 border border-cyan-200">
 
         <div className="flex-[1.1] flex flex-col justify-center px-10 py-12 relative z-10">

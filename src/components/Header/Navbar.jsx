@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Menu, X, BookOpen } from "lucide-react";
+import { Link } from "react-router";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -28,26 +29,25 @@ const Navbar = () => {
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-8 font-medium">
 
-          <a
-            href=""
+          <Link to='/'
+          
             className="relative text-gray-700 hover:text-cyan-600 transition duration-300 after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[2px] after:bg-cyan-500 hover:after:w-full after:transition-all after:duration-300"
           >
             Home
-          </a>
+          </Link>
 
-          <a
-            href=""
+          <Link to='/listedBooks'
+            
             className="relative text-gray-700 hover:text-cyan-600 transition duration-300 after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[2px] after:bg-cyan-500 hover:after:w-full after:transition-all after:duration-300"
           >
             Listed Books
-          </a>
+          </Link>
 
-          <a
-            href=""
+          <Link to='/pages'
             className="relative text-gray-700 hover:text-cyan-600 transition duration-300 after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[2px] after:bg-cyan-500 hover:after:w-full after:transition-all after:duration-300"
           >
             Pages to Read
-          </a>
+          </Link>
         </div>
 
 
@@ -91,26 +91,23 @@ const Navbar = () => {
 
         <div className="mx-4 rounded-2xl border border-cyan-100 bg-white shadow-lg p-5 flex flex-col gap-5">
 
-          <a
-            href=""
+          <Link to='/'
             className="text-gray-700 hover:text-cyan-600 font-medium transition duration-300"
           >
             Home
-          </a>
+          </Link>
 
-          <a
-            href=""
+          <Link to='/listedBooks'
             className="text-gray-700 hover:text-cyan-600 font-medium transition duration-300"
           >
             Listed Books
-          </a>
+          </Link>
 
-          <a
-            href=""
+          <Link to='/pages'
             className="text-gray-700 hover:text-cyan-600 font-medium transition duration-300"
           >
             Pages to Read
-          </a>
+          </Link>
 
 
 

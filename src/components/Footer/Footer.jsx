@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = () => {
     return (
-        <footer className="w-full bg-[#164756fa] text-[#c8d6c0] font-light mt-10">
+        <footer className="w-full bg-[#164756fa] text-[#c8d6c0] font-light ">
             {/* Top Newsletter Bar */}
             <div className="bg-[#226236] border-b border-[#2a3d2f] px-12 py-3.5 flex items-center justify-between flex-wrap gap-3">
                 <span className="text-xs tracking-widest uppercase text-[#6baa7a] font-normal">

@@ -6,7 +6,7 @@ const Books = ({ data }) => {
     <div className="max-w-6xl mx-auto px-4 py-12">
 
       <div className="mb-10 text-center ">
-        <h2 className="font-serif text-4xl font-semibold text-gray-900">
+        <h2 className="font-serif text-4xl font-semibold text-white">
           Explore Books
         </h2>
         <div className=" w-9 h-0.5 bg-amber-600 mt-2 mb-2 rounded-full mx-auto" />
