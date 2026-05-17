@@ -4,6 +4,7 @@ import ErrorPage from "../pages/ErrorPage/ErrorPage.jsx";
 import Home from "../pages/Home/Home.jsx";
 import ListedBooks from "../pages/ListedBooks/ListedBooks.jsx";
 import BookDetails from "../pages/BookDetails/BookDetails.jsx";
+import PagesToRead from "../pages/PagesToRead/PagesToRead.jsx";
 
 export const router = createBrowserRouter([
   {
@@ -28,6 +29,11 @@ export const router = createBrowserRouter([
         loader: () => fetch("/booksData.json"),
         Component: BookDetails,
       },
+      {
+        path: "pages",
+        loader: () => fetch("/booksData.json"),
+        Component: PagesToRead,
+      }
     ],
   },
 ]);
