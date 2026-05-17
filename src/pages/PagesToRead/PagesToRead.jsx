@@ -15,17 +15,17 @@ const COLORS = [
 
 const PagesToRead = () => {
 
-    const allBooks  = useLoaderData();
+    const allBooks = useLoaderData();
     const canvasRef = useRef(null);
-    const chartRef  = useRef(null);
+    const chartRef = useRef(null);
 
     // Sort books by pages descending for a nicer chart
     const books = [...allBooks].sort((a, b) => b.totalPages - a.totalPages);
 
     const labels = books.map((b) => b.bookName);
-    const pages  = books.map((b) => b.totalPages);
-    const total  = pages.reduce((sum, p) => sum + p, 0);
-    const max    = Math.max(...pages);
+    const pages = books.map((b) => b.totalPages);
+    const total = pages.reduce((sum, p) => sum + p, 0);
+    const max = Math.max(...pages);
 
     useEffect(() => {
         if (!canvasRef.current) return;
@@ -45,7 +45,7 @@ const PagesToRead = () => {
                     label: "Pages",
                     data: pages,
                     backgroundColor: COLORS.slice(0, books.length),
-                    borderColor:     COLORS.slice(0, books.length),
+                    borderColor: COLORS.slice(0, books.length),
                     borderWidth: 0,
                     borderRadius: 4,
                     borderSkipped: "bottom",
@@ -95,64 +95,83 @@ const PagesToRead = () => {
     }, []);
 
     return (
-        <div className="min-h-screen bg-slate-950 text-white">
+        <div
+            className="min-h-screen bg-slate-950 text-white"
+            style={{
+                backgroundImage: `
+          radial-gradient(ellipse at 10% 20%, rgba(6,182,212,0.07) 0%, transparent 50%),
+          radial-gradient(ellipse at 90% 80%, rgba(16,185,129,0.07) 0%, transparent 50%)
+        `,
+            }}
+        >
 
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js" />
+            <div
+                className="fixed inset-0 pointer-events-none opacity-[0.03]"
+                style={{
+                    backgroundImage: `linear-gradient(rgba(6,182,212,1) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(6,182,212,1) 1px, transparent 1px)`,
+                    backgroundSize: "60px 60px",
+                }}
+            />
+            <div className="min-h-screen bg-slate-950 text-white">
 
-            <div className="max-w-5xl mx-auto px-6 py-10">
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js" />
 
-                <div className="mb-8">
-                    <h1 className="text-2xl font-black">Pages to Read</h1>
-                    <p className="text-slate-400 text-sm mt-1">
-                        A breakdown of page counts across all books in the library.
-                    </p>
-                </div>
+                <div className="max-w-5xl mx-auto px-6 py-10">
 
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
-
-                    <StatCard label="Total Books"  value={books.length} />
-                    <StatCard label="Total Pages"  value={total.toLocaleString()} />
-                    <StatCard label="Longest Book" value={`${max} pg`} />
-                    <StatCard
-                        label="Avg Pages"
-                        value={`${Math.round(total / books.length)} pg`}
-                    />
-
-                </div>
-
-                {/* Chart */}
-                <div className="bg-slate-900 rounded-2xl p-6">
-                    <p className="text-xs font-semibold uppercase tracking-widest text-slate-500 mb-5">
-                        Pages per book
-                    </p>
-
-                    <div style={{ position: "relative", height: "340px" }}>
-                        <canvas
-                            ref={canvasRef}
-                            role="img"
-                            aria-label="Bar chart showing page counts for each book in the library"
-                        />
+                    <div className="mb-8">
+                        <h1 className="text-2xl font-black">Pages to Read</h1>
+                        <p className="text-slate-400 text-sm mt-1">
+                            A breakdown of page counts across all books in the library.
+                        </p>
                     </div>
-                </div>
 
-                <div className="mt-6 bg-slate-900 rounded-2xl p-6 space-y-4">
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
 
-                    <p className="text-xs font-semibold uppercase tracking-widest text-slate-500 mb-5">
-                        Ranked by pages
-                    </p>
-
-                    {books.map((book, i) => (
-                        <BookRow
-                            key={book.bookId}
-                            book={book}
-                            color={COLORS[i % COLORS.length]}
-                            max={max}
-                            rank={i + 1}
+                        <StatCard label="Total Books" value={books.length} />
+                        <StatCard label="Total Pages" value={total.toLocaleString()} />
+                        <StatCard label="Longest Book" value={`${max} pg`} />
+                        <StatCard
+                            label="Avg Pages"
+                            value={`${Math.round(total / books.length)} pg`}
                         />
-                    ))}
+
+                    </div>
+
+                    {/* Chart */}
+                    <div className="bg-slate-900 rounded-2xl p-6">
+                        <p className="text-xs font-semibold uppercase tracking-widest text-slate-500 mb-5">
+                            Pages per book
+                        </p>
+
+                        <div style={{ position: "relative", height: "340px" }}>
+                            <canvas
+                                ref={canvasRef}
+                                role="img"
+                                aria-label="Bar chart showing page counts for each book in the library"
+                            />
+                        </div>
+                    </div>
+
+                    <div className="mt-6 bg-slate-900 rounded-2xl p-6 space-y-4">
+
+                        <p className="text-xs font-semibold uppercase tracking-widest text-slate-500 mb-5">
+                            Ranked by pages
+                        </p>
+
+                        {books.map((book, i) => (
+                            <BookRow
+                                key={book.bookId}
+                                book={book}
+                                color={COLORS[i % COLORS.length]}
+                                max={max}
+                                rank={i + 1}
+                            />
+                        ))}
+
+                    </div>
 
                 </div>
-
             </div>
         </div>
     );

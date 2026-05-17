@@ -17,7 +17,7 @@ const Home = () => {
         `,
             }}
         >
-            
+
             <div
                 className="fixed inset-0 pointer-events-none opacity-[0.03]"
                 style={{

@@ -8,20 +8,20 @@ const ListedBooks = () => {
     const allBooks = useLoaderData();
 
     const [activeTab, setActiveTab] = useState("read");
-    const [sortBy, setSortBy]       = useState("default");
+    const [sortBy, setSortBy] = useState("default");
 
-    const [readIds,     setReadIds]     = useState(() => getStoredBook("readList"));
+    const [readIds, setReadIds] = useState(() => getStoredBook("readList"));
     const [wishlistIds, setWishlistIds] = useState(() => getStoredBook("wishList"));
 
-    const readBooks     = allBooks.filter((b) => readIds.includes(b.bookId));
+    const readBooks = allBooks.filter((b) => readIds.includes(b.bookId));
     const wishlistBooks = allBooks.filter((b) => wishlistIds.includes(b.bookId));
 
     const currentList = activeTab === "read" ? readBooks : wishlistBooks;
 
     const sortedList = [...currentList].sort((a, b) => {
         if (sortBy === "rating") return b.rating - a.rating;
-        if (sortBy === "pages")  return b.totalPages - a.totalPages;
-        if (sortBy === "year")   return b.yearOfPublishing - a.yearOfPublishing;
+        if (sortBy === "pages") return b.totalPages - a.totalPages;
+        if (sortBy === "year") return b.yearOfPublishing - a.yearOfPublishing;
         return 0;
     });
 
@@ -38,7 +38,24 @@ const ListedBooks = () => {
     };
 
     return (
-        <div className="min-h-screen bg-slate-950 text-white">
+        <div
+            className="min-h-screen bg-slate-950 text-white"
+            style={{
+                backgroundImage: `
+          radial-gradient(ellipse at 10% 20%, rgba(6,182,212,0.07) 0%, transparent 50%),
+          radial-gradient(ellipse at 90% 80%, rgba(16,185,129,0.07) 0%, transparent 50%)
+        `,
+            }}
+        >
+
+            <div
+                className="fixed inset-0 pointer-events-none opacity-[0.03]"
+                style={{
+                    backgroundImage: `linear-gradient(rgba(6,182,212,1) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(6,182,212,1) 1px, transparent 1px)`,
+                    backgroundSize: "60px 60px",
+                }}
+            />
             <div className="max-w-4xl mx-auto px-6 py-12">
 
                 <div className="flex gap-3 mb-10">
@@ -185,6 +202,7 @@ const BookCard = ({ book, isWishlist, onRemove }) => {
             </div>
 
         </div>
+
     );
 };
 
