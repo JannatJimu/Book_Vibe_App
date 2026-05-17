@@ -14,7 +14,7 @@ const Book = ({ book, index }) => {
     yearOfPublishing,
   } = book;
 
-  // Convert rating safely into number
+  
   const numericRating = Number(rating) || 0;
 
   // Create 5 stars
@@ -47,7 +47,6 @@ const Book = ({ book, index }) => {
                 className="w-[100px] h-38 object-cover rounded-2xl border-4 border-white shadow-lg group-hover:scale-105 transition duration-300"
               />
 
-              {/* Small floating icon */}
               <div className="absolute -bottom-2 -left-2 bg-emerald-500 text-white p-1.5 rounded-full shadow-lg">
                 <Sparkles size={12} />
               </div>
@@ -57,7 +56,6 @@ const Book = ({ book, index }) => {
         </div>
 
 
-        {/* Divider Line */}
         <div className="h-px bg-gradient-to-r from-transparent via-cyan-200 to-transparent mt-5" />
 
 
@@ -75,8 +73,6 @@ const Book = ({ book, index }) => {
 
           </div>
 
-
-          {/* Rating Stars */}
           <div className="flex items-center gap-1">
 
             {stars.map((filled, i) => (
@@ -89,7 +85,6 @@ const Book = ({ book, index }) => {
               </span>
             ))}
 
-            {/* Rating Number */}
             <span className="ml-2 text-xs font-semibold text-cyan-700">
               {numericRating}
             </span>
